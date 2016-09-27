@@ -40,5 +40,6 @@ namespace WardrobeJR.Models
 
         }
 
+        public System.Data.Entity.DbSet<WardrobeJR.Models.Accessory> Accessories { get; set; }
     }
 }

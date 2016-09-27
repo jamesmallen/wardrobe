@@ -128,6 +128,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccessoriesController.cs" />
     <Compile Include="Controllers\BottomsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OutfitsController.cs" />
@@ -135,6 +136,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Accessory.cs" />
     <Compile Include="Models\Bottom.cs" />
     <Compile Include="Models\Outfit.cs" />
     <Compile Include="Models\Shoe.cs" />
@@ -195,6 +197,11 @@
     <Content Include="Views\Outfits\Details.cshtml" />
     <Content Include="Views\Outfits\Edit.cshtml" />
     <Content Include="Views\Outfits\Index.cshtml" />
+    <Content Include="Views\Accessories\Create.cshtml" />
+    <Content Include="Views\Accessories\Delete.cshtml" />
+    <Content Include="Views\Accessories\Details.cshtml" />
+    <Content Include="Views\Accessories\Edit.cshtml" />
+    <Content Include="Views\Accessories\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

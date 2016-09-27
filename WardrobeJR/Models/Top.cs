@@ -11,12 +11,9 @@ namespace WardrobeJR.Models
         public int TopId { get; set; }
         public string TopName { get; set; }
         public string TopPhoto { get; set; }
-        [Required]
-        public int? ColorId { get; set; }
-        [Required]
-        public int? SeasonId { get; set; }
-        [Required]
-        public int? OccasionId { get; set; }
+        public int ColorId { get; set; }
+        public int SeasonId { get; set; }
+        public int OccasionId { get; set; }
 
         public virtual Color Color { get; set; }
         public virtual Season Season { get; set; }

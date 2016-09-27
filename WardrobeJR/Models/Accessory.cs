@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
 namespace WardrobeJR.Models
 {
-    public class Bottom
+    public class Accessory
     {
-        public int BottomId { get; set; }
-        public string BottomName { get; set; }
-        public string BottomPhoto { get; set; }
+        public int AccessoryId { get; set; }
+        public string AccessoryName { get; set; }
+        public string AccessoryPhoto { get; set; }
         public int ColorId { get; set; }
         public int SeasonId { get; set; }
         public int OccasionId { get; set; }

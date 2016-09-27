@@ -16,5 +16,6 @@ namespace WardrobeJR.Models
         public virtual Bottom Bottom { get; set; }
         public virtual Shoe Shoe { get; set; }
 
+        public virtual ICollection<Accessory> Accessories { get; set; }
     }
 }
