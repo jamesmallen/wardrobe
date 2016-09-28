@@ -7,6 +7,11 @@ namespace WardrobeJR.Models
 {
     public class Outfit
     {
+        public Outfit()
+        {
+            Accessories = new HashSet<Accessory>();
+        }
+
         public int OutfitId { get; set; }
         public int TopId { get; set; }
         public int BottomId { get; set; }

@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using WardrobeJR.Models;
+using WardrobeJR.ViewModels;
 
 namespace WardrobeJR.Controllers
 {
@@ -80,7 +81,21 @@ namespace WardrobeJR.Controllers
             ViewBag.BottomId = new SelectList(db.Bottoms, "BottomId", "BottomName", outfit.BottomId);
             ViewBag.ShoeId = new SelectList(db.Shoes, "ShoeId", "ShoeName", outfit.ShoeId);
             ViewBag.TopId = new SelectList(db.Tops, "TopId", "TopName", outfit.TopId);
-            return View(outfit);
+
+            OutfitViewModel outfitViewModel = new OutfitViewModel
+            {
+                Outfit = outfit,
+                // Look up all accessories, then converts them into
+                // SelectListItem objects
+                AllAccessories = (from a in db.Accessories
+                                  select new SelectListItem
+                                  {
+                                      Value = a.AccessoryId.ToString(),
+                                      Text = a.AccessoryName
+                                  })
+            };
+
+            return View(outfitViewModel);
         }
 
         // POST: Outfits/Edit/5
