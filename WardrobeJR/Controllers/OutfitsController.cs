@@ -103,11 +103,30 @@ namespace WardrobeJR.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "OutfitId,TopId,BottomId,ShoeId")] Outfit outfit)
+        public ActionResult Edit([Bind(Include = "OutfitId,TopId,BottomId,ShoeId")] Outfit outfit, List<int> SelectedAccessories)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(outfit).State = EntityState.Modified;
+                // create a variable to access the data in the database
+                var existingOutfit = db.Outfits.Find(outfit.OutfitId);
+
+                // change the existing properties to the new properties
+                existingOutfit.TopId = outfit.TopId;
+                existingOutfit.BottomId = outfit.BottomId;
+                existingOutfit.ShoeId = outfit.ShoeId;
+
+                existingOutfit.Accessories.Clear();
+
+                foreach (int accessoryId in SelectedAccessories)
+                {
+                    // find the accessory by its id and add it to the existing outfit
+                    existingOutfit.Accessories.Add(db.Accessories.Find(accessoryId));
+                }
+                    
+                //the below line takes the outfit that came from the user
+                //and saves it directly to the database
+                //we don't want to do this because we need to attach accessories to it!
+                //db.Entry(outfit).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
